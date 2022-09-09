@@ -1,0 +1,65 @@
+2022-09-07 16:14:19.416: 203561: 
+2022-09-07 16:14:19.416: 203561: 
+2022-09-07 16:14:19.416: 203561: 
+2022-09-07 16:14:19.416: 203561: Starting p.haul
+2022-09-07 16:14:19.416: 203561: Use existing connections, fdrpc=11 fdmem=13 fdfs=root.hdd/root.hds:15
+2022-09-07 16:14:19.418: 203561: Setting up local
+2022-09-07 16:14:19.418: 203561: Loading config file from /etc/vz/conf/
+2022-09-07 16:14:19.419: 203561: Initialize ploop hauler
+2022-09-07 16:14:19.419: 203561: 	`- /vz/private/101/root.hdd/root.hds
+2022-09-07 16:14:19.419: 203561: Passing (ctl:12, data:10) pair to CRIU
+2022-09-07 16:14:19.420: 203561: 	Set maximum number of open file descriptors to 1048576
+2022-09-07 16:14:19.421: 203561: Setting up remote
+2022-09-07 16:14:19.426: 203561: Check if there are network-attached block devices
+2022-09-07 16:14:19.428: 203561:  - /dev/ploop49941p1 is a local block device
+2022-09-07 16:14:19.430: 203561:  - /dev/ploop49941 is a local block device
+2022-09-07 16:14:19.437: 203561: Start migration in live mode
+2022-09-07 16:14:19.437: 203561: Checking CPU compatibility
+2022-09-07 16:14:19.437: 203561: 	`- Dumping CPU info
+2022-09-07 16:14:19.438: 203561: 	`- Sending CPU info
+2022-09-07 16:14:19.440: 203561: 	`- Checking CPU info
+2022-09-07 16:14:19.442: 203561: Checking criu version
+2022-09-07 16:14:19.446: 203561: Checking k8s support
+2022-09-07 16:14:19.449: 203561: 	- k8s support: False
+2022-09-07 16:14:19.449: 203561: Checking for Dirty Tracking
+2022-09-07 16:14:19.449: 203561: 	`- Explicitly enabled
+2022-09-07 16:14:19.449: 203561: Preliminary FS migration
+2022-09-07 16:14:23.171: 203561: 	Fs driver transfer 876609536 bytes (~836Mb)
+2022-09-07 16:14:23.171: 203561: * Iteration 0
+2022-09-07 16:14:23.173: 203561: 	Making directory /vz/dump/101/dmp-Ly6jVd-22.09.07-16.14/img/1
+2022-09-07 16:14:23.173: 203561: 	Issuing pre-dump command to service
+2022-09-07 16:14:23.628: 203561: 	Dumped 9296 pages, 0 skipped
+2022-09-07 16:14:23.628: 203561: 	Fs driver transfer 0 bytes
+2022-09-07 16:14:23.628: 203561: Checking iteration progress:
+2022-09-07 16:14:23.628: 203561: 	> Proceed to next iteration
+2022-09-07 16:14:23.628: 203561: * Iteration 1
+2022-09-07 16:14:23.630: 203561: 	Making directory /vz/dump/101/dmp-Ly6jVd-22.09.07-16.14/img/2
+2022-09-07 16:14:23.630: 203561: 	Issuing pre-dump command to service
+2022-09-07 16:14:24.051: 203561: 	Dumped 63 pages, 9233 skipped
+2022-09-07 16:14:24.051: 203561: 	Fs driver transfer 0 bytes
+2022-09-07 16:14:24.051: 203561: Checking iteration progress:
+2022-09-07 16:14:24.051: 203561: 	> Small dump
+2022-09-07 16:14:24.051: 203561: Final dump and restore
+2022-09-07 16:14:24.053: 203561: 	Making directory /vz/dump/101/dmp-Ly6jVd-22.09.07-16.14/img/3
+2022-09-07 16:14:24.053: 203561: 	Issuing dump command to service
+2022-09-07 16:14:24.071: 203561: 		Notify (pre-dump)
+2022-09-07 16:14:24.175: 203561: 		Notify (network-lock)
+2022-09-07 16:14:24.187: 203561: 			Running action script /usr/libexec/criu/scripts/nfs-ports-allow.sh
+2022-09-07 16:14:24.190: 203561: 		Notify (post-network-lock)
+2022-09-07 16:14:24.629: 203561: Final FS and images sync
+2022-09-07 16:14:24.769: 203561: Sending images to target
+2022-09-07 16:14:24.770: 203561: 	Pack
+2022-09-07 16:14:24.783: 203561: 	Add htype images
+2022-09-07 16:14:25.032: 203561: Asking target host to restore
+2022-09-07 16:14:25.637: 203561: 	Dumped 63 pages, 9233 skipped
+2022-09-07 16:14:25.637: 203561: 	Fs driver transfer 5242880 bytes (~5Mb)
+2022-09-07 16:14:25.637: 203561: Migration succeeded
+2022-09-07 16:14:25.637: 203561: Umounting CT root
+2022-09-07 16:14:25.637: 203561: Running vzctl umount
+2022-09-07 16:14:25.728: 203561: 	> Unmount image: /vz/private/101/root.hdd (190)
+2022-09-07 16:14:25.729: 203561: 	> Container is unmounted
+2022-09-07 16:14:25.731: 203561: 	   total time is ~6.28 sec
+2022-09-07 16:14:25.731: 203561: 	  frozen time is ~1.57 sec (['0.06', '0.05', '1.46'])
+2022-09-07 16:14:25.731: 203561: 	 restore time is ~0.39 sec
+2022-09-07 16:14:25.731: 203561: 	img sync time is ~0.26 sec
+2022-09-07 16:14:25.731: 203561: Images are kept in /vz/dump/101/dmp-Ly6jVd-22.09.07-16.14/img
