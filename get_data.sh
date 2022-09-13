@@ -96,4 +96,6 @@ cp -r $(dirname "$img_path") ./$i/$(basename $(dirname "$img_path"))
 # 删除phaul.log
 rm -f $log
 
+echo -e "\n\n\n"
+
 done
