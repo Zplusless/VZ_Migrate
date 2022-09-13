@@ -12,7 +12,7 @@ n_mig=5
 for ((i=0;i<$n_mig;i++))
 do
 
-echo "$(date) ---> no container 101, waiting"
+# echo "$(date) ---> no container 101, waiting"
 
 mkdir ./$i
 
@@ -21,9 +21,10 @@ mkdir ./$i
 while :
 do 
 a=$(vzlist -a |grep '101'|grep -c 'running')
-if [ $a -gt 0 ];
-then
-break
+if [ $a -gt 0 ]; then
+  break
+else
+  echo "$(date) ---> no container 101, waiting"
 fi
 sleep 5
 # echo "$(date) ---> no container 101"
@@ -50,7 +51,9 @@ echo $img_path
 # 输出文件系统数据量
 # fs_data=`cat $log|sed -n 27p|awk {'printf $7'}`
 tmp=`cat $log|grep 'Fs driver transfer'|awk '{print $7,'\n'}'`
+pre_fs_data=`echo $tmp|awk '{print $1}'`
 fs_data=`echo $tmp|awk -F " " '{ for(i=1;i<=NF;i++) sum+=$i; print sum}'`
+echo pre_fs_data $pre_fs_data
 echo fs_data $fs_data
 
 # 输出镜像数据量
@@ -81,10 +84,10 @@ echo img_time $img_time
 
 
 if [ ! -f "$csv_path" ]; then
-  echo 'img_path, fs_data, img_data, total_time, frozen_time, restore_time, img_time'>$csv_path
+  echo 'img_path, pre_fs_data, fs_data, img_data, total_time, frozen_time, restore_time, img_time'>$csv_path
 fi
 
-echo $img_path, $fs_data, $img_data, $total_time, $frozen_time, $restore_time, $img_time>>$csv_path
+echo $img_path, $pre_fs_data, $fs_data, $img_data, $total_time, $frozen_time, $restore_time, $img_time>>$csv_path
 
 
 # 备份img文件
